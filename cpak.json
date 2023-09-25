@@ -4,7 +4,8 @@
   "version": "1.21.1",
   "image": "ghcr.io/containerpak/sdk-go:main",
   "binaries": [
-    "/usr/local/bin/go"
+    "/usr/local/bin/go",
+    "/usr/local/bin/gofmt"
   ],
   "desktop_entries": [],
   "dependencies": [],
