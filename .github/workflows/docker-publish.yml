@@ -23,9 +23,9 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Build the Docker image
-      run: docker image build -f Containerfile --tag ghcr.io/containerpak/spotify:main .
+      run: docker image build -f Containerfile --tag ghcr.io/containerpak/sdk-go:main .
 
     - name: Push To GHCR
       run: |
         docker login ghcr.io -u ${{ env.REGISTRY_USER }} -p ${{ env.REGISTRY_PASSWORD }}
-        docker image push "ghcr.io/containerpak/spotify:main"
+        docker image push "ghcr.io/containerpak/sdk-go:main"
