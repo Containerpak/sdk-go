@@ -1,14 +1,12 @@
 {
-  "name": "Spotify",
-  "description": "Online music streaming service",
-  "version": "1.2.13.661",
-  "image": "ghcr.io/containerpak/spotify:main",
+  "name": "Go SDK",
+  "description": "Build simple, secure, scalable systems with Go",
+  "version": "1.21.1",
+  "image": "ghcr.io/containerpak/sdk-go:main",
   "binaries": [
-    "/usr/bin/spotify"
+    "/usr/local/bin/go"
   ],
-  "desktop_entries": [
-    "/usr/share/spotify/spotify.desktop"
-  ],
+  "desktop_entries": [],
   "dependencies": [],
   "future_dependencies": [],
   "idle_time": 0,
@@ -17,21 +15,21 @@
     "socketWayland": true,
     "socketPulseAudio": true,
     "socketSessionBus": true,
-    "socketSystemBus": false,
-    "socketSshAgent": false,
-    "socketCups": false,
-    "socketGpgAgent": false,
+    "socketSystemBus": true,
+    "socketSshAgent": true,
+    "socketCups": true,
+    "socketGpgAgent": true,
     "deviceDri": false,
     "deviceKvm": false,
     "deviceShm": false,
     "deviceAll": true,
-    "fsHost": false,
+    "fsHost": true,
     "fsHostEtc": false,
-    "fsHostHome": false,
+    "fsHostHome": true,
     "fsExtra": [],
     "env": [],
     "network": true,
-    "process": false,
+    "process": true,
     "asRoot": false
   }
 }
