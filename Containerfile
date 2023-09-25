@@ -1,9 +1,7 @@
-FROM ghcr.io/containerpak/mesa:main
+FROM ghcr.io/containerpak/base:main
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update && \
-    apt install -y curl gnupg2 && \
-    curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg && \
-    echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.list.d/spotify.list && \
-    apt update && \
-    apt install -y spotify-client && \
+    apt install -y wget gpg && \
+    wget -O go.tar.gz https://go.dev/dl/go1.21.1.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf go.tar.gz && \
     /usr/bin/cpak-clean-junk
