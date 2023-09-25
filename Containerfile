@@ -7,5 +7,4 @@ RUN apt update && \
     mv /usr/local/go/* /usr/local/ && \
     chmod +x /usr/local/bin/go /usr/local/bin/gofmt && \
     /usr/local/bin/go install -v golang.org/x/tools/gopls@latest && \
-    /usr/local/bin/go install -v golang.org/x/tools/goimports@latest && \
     /usr/bin/cpak-clean-junk
