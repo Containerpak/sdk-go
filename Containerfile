@@ -1,4 +1,4 @@
-FROM ghcr.io/containerpak/base:main AS fetch
+FROM ubuntu:26.04 AS fetch
 
 ARG TARGETARCH
 ARG GO_VERSION=1.26.5
@@ -19,7 +19,7 @@ RUN apt-get update && \
     tar -C /opt -xzf /tmp/go.tar.gz && \
     rm /tmp/go.tar.gz
 
-FROM ghcr.io/containerpak/base:main
+FROM ubuntu:26.04
 
 COPY --from=fetch /opt/go/ /usr/local/
 
