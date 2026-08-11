@@ -1,7 +1,8 @@
 {
+  "manifest_version": "2.0",
   "name": "Go SDK",
-  "description": "Build simple, secure, scalable systems with Go",
-  "version": "1.21.1",
+  "description": "Go compiler and tools for Cpak development environments.",
+  "version": "1.26.5",
   "image": "ghcr.io/containerpak/sdk-go:main",
   "binaries": [
     "/usr/local/bin/go",
@@ -12,25 +13,7 @@
   "addons": [],
   "idle_time": 0,
   "override": {
-    "socketX11": true,
-    "socketWayland": true,
-    "socketPulseAudio": true,
-    "socketSessionBus": true,
-    "socketSystemBus": true,
-    "socketSshAgent": true,
-    "socketCups": true,
-    "socketGpgAgent": true,
-    "deviceDri": false,
-    "deviceKvm": false,
-    "deviceShm": false,
-    "deviceAll": true,
-    "fsHost": true,
-    "fsHostEtc": false,
     "fsHostHome": true,
-    "fsExtra": [],
-    "env": [],
-    "network": true,
-    "process": true,
-    "asRoot": false
+    "network": true
   }
 }

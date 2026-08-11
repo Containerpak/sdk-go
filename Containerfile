@@ -1,10 +1,27 @@
+FROM ghcr.io/containerpak/base:main AS fetch
+
+ARG TARGETARCH
+ARG GO_VERSION=1.26.5
+ARG GO_SHA256_AMD64=5c2c3b16caefa1d968a94c1daca04a7ca301a496d9b086e17ad77bb81393f053
+ARG GO_SHA256_ARM64=fe4789e92b1f33358680864bbe8704289e7bb5fc207d80623c308935bd696d49
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends ca-certificates curl && \
+    rm -rf /var/lib/apt/lists/* && \
+    case "$TARGETARCH" in \
+        amd64) goarch=amd64; checksum="$GO_SHA256_AMD64" ;; \
+        arm64) goarch=arm64; checksum="$GO_SHA256_ARM64" ;; \
+        *) echo "unsupported architecture: $TARGETARCH" >&2; exit 1 ;; \
+    esac && \
+    curl -fsSLo /tmp/go.tar.gz "https://go.dev/dl/go${GO_VERSION}.linux-${goarch}.tar.gz" && \
+    echo "${checksum}  /tmp/go.tar.gz" | sha256sum -c - && \
+    mkdir -p /opt && \
+    tar -C /opt -xzf /tmp/go.tar.gz && \
+    rm /tmp/go.tar.gz
+
 FROM ghcr.io/containerpak/base:main
-ARG DEBIAN_FRONTEND=noninteractive
-RUN apt update && \
-    apt install -y wget gpg && \
-    wget -O go.tar.gz https://go.dev/dl/go1.21.1.linux-amd64.tar.gz && \
-    tar -C /usr/local -xzf go.tar.gz && \
-    rm go.tar.gz && \
-    mv /usr/local/go/* /usr/local/ && \
-    chmod +x /usr/local/bin/go /usr/local/bin/gofmt && \
-    /usr/bin/cpak-clean-junk
+
+COPY --from=fetch /opt/go/ /usr/local/
+
+ENV GOROOT=/usr/local
+ENV PATH=/usr/local/bin:${PATH}
