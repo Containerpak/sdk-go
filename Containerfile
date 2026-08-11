@@ -21,6 +21,10 @@ RUN apt-get update && \
 
 FROM ubuntu:26.04
 
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+
 COPY --from=fetch /opt/go/ /usr/local/
 
 ENV GOROOT=/usr/local
