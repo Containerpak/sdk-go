@@ -27,5 +27,8 @@ RUN apt-get update && \
 
 COPY --from=fetch /opt/go/ /usr/local/
 
+RUN ln -s /usr/local/bin/go /usr/bin/go && \
+    ln -s /usr/local/bin/gofmt /usr/bin/gofmt
+
 ENV GOROOT=/usr/local
 ENV PATH=/usr/local/bin:${PATH}
