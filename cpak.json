@@ -12,6 +12,15 @@
   "desktop_entries": [],
   "dependencies": [],
   "addons": [],
+  "addon_provider": {
+    "id": "go",
+    "slot": "sdk.go",
+    "mode": "exclusive",
+    "exports": {
+      "path": ["/usr/local/bin"],
+      "environment": ["GOROOT=/usr/local"]
+    }
+  },
   "idle_time": 0,
   "override": {
     "socketX11": false,
