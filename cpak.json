@@ -1,10 +1,10 @@
 {
-  "$schema": "https://raw.githubusercontent.com/Containerpak/cpak/v2/schema/manifest-v2.json",
-  "manifest_version": "2.0",
+  "$schema": "https://raw.githubusercontent.com/Containerpak/cpak/v2/schema/manifest-v3.json",
+  "manifest_version": "3.0",
   "name": "Go SDK",
   "description": "Go compiler and tools for cpak development environments.",
   "version": "1.27.0",
-  "image": "ghcr.io/containerpak/sdk-go:main",
+  "image": "ghcr.io/containerpak/sdk-go@sha256:5863c8b8732b034f07d70926ace39075971caabf9e58f5af380fb4c5c1bf2bb6",
   "binaries": [
     "/usr/local/bin/go",
     "/usr/local/bin/gofmt"
@@ -17,22 +17,21 @@
     "slot": "sdk.go",
     "mode": "exclusive",
     "exports": {
-      "path": ["/usr/local/bin"],
-      "environment": ["GOROOT=/usr/local"]
+      "path": [
+        "/usr/local/bin"
+      ],
+      "environment": [
+        "GOROOT=/usr/local"
+      ]
     }
   },
   "idle_time": 0,
   "override": {
-    "socketX11": false,
     "socketWayland": false,
     "socketPulseAudio": false,
-    "socketSessionBus": false,
-    "socketSystemBus": false,
     "socketSshAgent": false,
     "socketCups": false,
     "socketGpgAgent": false,
-    "socketAtSpiBus": false,
-    "socketBluetooth": false,
     "deviceDri": false,
     "deviceKvm": false,
     "deviceShm": false,
