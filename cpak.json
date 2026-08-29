@@ -4,7 +4,7 @@
   "name": "Go SDK",
   "description": "Go compiler and tools for cpak development environments.",
   "version": "1.27.0",
-  "image": "ghcr.io/containerpak/sdk-go@sha256:22abe0b0acf90b1c4811cdf16c92ebec7fe956f54363995f172d928e1d0a7efd",
+  "image": "ghcr.io/containerpak/sdk-go@sha256:40c5035de94e2f8d934f9f6cd07c6364e44d0313cc5f3bf4dd79c2daf9c1ac4d",
   "binaries": [
     "/usr/local/bin/go",
     "/usr/local/bin/gofmt"
